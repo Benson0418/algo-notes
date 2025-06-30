@@ -34,19 +34,19 @@ struct Node{
 };
 
 struct DoublyLinkedList {
-    //ªì©l¤ÆÂù¦VÃìªí
+    //åˆå§‹åŒ–é›™å‘éˆè¡¨
     private:
         Node *head = nullptr;
         Node *tail = nullptr;
     public:
-        //¤Í½Ë¨ç¼Æ¡AÅıostream¿é¥X¬y³X°İ¨p¦³¦¨­ûhead, tail
+        //å‹èª¼å‡½æ•¸ï¼Œè®“ostreamè¼¸å‡ºæµè¨ªå•ç§æœ‰æˆå“¡head, tail
         friend ostream& operator<<(ostream& os, DoublyLinkedList& DLL);
 
-        //«Øºc¨ç¼Æ
+        //å»ºæ§‹å‡½æ•¸
         DoublyLinkedList() = default;
 
-        //«ş¨©¨ç¼Æ­«¸ü
-        DoublyLinkedList(const DoublyLinkedList& DLL):head(nullptr), tail(nullptr){ //²`«ş¨©
+        //æ‹·è²å‡½æ•¸é‡è¼‰
+        DoublyLinkedList(const DoublyLinkedList& DLL):head(nullptr), tail(nullptr){ //æ·±æ‹·è²
             head = new Node(DLL.head->val);
             Node * curr = head;
             Node * src = DLL.head->next;
@@ -57,7 +57,7 @@ struct DoublyLinkedList {
             }
             tail = curr;
         }
-        //ªRºc¨ç¼Æ­«¸ü
+        //ææ§‹å‡½æ•¸é‡è¼‰
         ~DoublyLinkedList(){
             while (head!=nullptr){
                 Node * temp = head;
@@ -93,7 +93,7 @@ struct DoublyLinkedList {
             }
         }
         int pop(){
-            if (!head) return INT_INF; //«İ³B²z¡A¤ñ¦praise Error
+            if (!head) return INT_INF; //å¾…è™•ç†ï¼Œæ¯”å¦‚raise Error
             else{
                 int res = tail->val;
                 if (tail->pre == nullptr){
@@ -112,7 +112,7 @@ struct DoublyLinkedList {
             }
         }
         int prepop(){
-            if (!head) return INT_INF; //¦P pop() °İÃD
+            if (!head) return INT_INF; //åŒ pop() å•é¡Œ
             else{
                 int res = head->val;
                 if (head->next == nullptr){
@@ -139,29 +139,7 @@ struct DoublyLinkedList {
             return res;
         }
 
-//        DoublyLinkedList operator+(const DoublyLinkedList& DLL){
-//            if (head==nullptr) return DoublyLinkedList(DLL);
-//            if (DLL.head==nullptr) return DoublyLinkedList(this);
-//            DoublyLinkedList res;
-//            Node * curr = new Node(head.val);
-//            res.head = curr;
-//            Node * src = head->next;
-//            while (src!=nullptr){
-//                curr->next = new Node(src->val, curr);
-//                curr = curr->next;
-//                src = src->next;
-//            }
-//            curr->next = new Node(DLL.head->val);
-//            curr = curr->next;
-//            src = DLL.head->next;
-//            while (src!=nullptr){
-//                curr->next = new Node(src->val, curr);
-//                curr = curr->next;
-//                src = src->next;
-//            }
-//            return res;
-//        }
-};
+
 
 ostream& operator<<(ostream& os, DoublyLinkedList& DLL){
     if (DLL.head==nullptr) return os<<"doubly-linked-list is empty";
@@ -185,12 +163,12 @@ int main() {
     DLL.append(new Node(1));
     DLL.append(new Node(2));
     DLL.preappend(new Node(0));
-    cout<< DLL.getlength()<<endl; //¿é¥X3
+    cout<< DLL.getlength()<<endl; //è¼¸å‡º3
     cout<< DLL << endl;
-    cout<< DLL.prepop()<<endl; //¿é¥X0
-    cout<< DLL.pop()<<endl; //¿é¥X2
+    cout<< DLL.prepop()<<endl; //è¼¸å‡º0
+    cout<< DLL.pop()<<endl; //è¼¸å‡º2
     DoublyLinkedList nDLL = DLL;
-    cout<< nDLL.getlength()<<endl; //¿é¥X1
+    cout<< nDLL.getlength()<<endl; //è¼¸å‡º1
 
     DoublyLinkedList list1;
     list1.append(new Node(1));
@@ -201,7 +179,7 @@ int main() {
     list2.append(new Node(4));
 
     DoublyLinkedList combined = list1 + list2;
-    cout << combined << endl;  // ¿é¥X: 1 <-> 2 <-> 3 <-> 4
+    cout << combined << endl;  // è¼¸å‡º: 1 <-> 2 <-> 3 <-> 4
 
     return 0;
 }
