@@ -5,6 +5,35 @@ class Solution:
             return False
         S//=4
         
+        dp=[0]*(1<<len(matchsticks))
+        def f(rest,status,nth):
+            if dp[status]:
+                return dp[status]==1
+            if not rest:
+                rest=S
+                nth+=1
+            if nth>4:
+                dp[status]=1
+                return True
+
+            for i in range(0,len(matchsticks)):
+                if status&(1<<i) and matchsticks[i]<=rest and f(rest-matchsticks[i],status^(1<<i),nth):
+                    dp[status]=1
+                    return True
+            dp[status]=-1
+            return False
+            
+        
+        return f(S,(1<<len(matchsticks))-1,1)
+        
+'''
+class Solution:
+    def makesquare(self, matchsticks: List[int]) -> bool:
+        S=sum(matchsticks)
+        if S%4:
+            return False
+        S//=4
+        
         @cache
         def f(rest,status,nth):
             if not rest:
@@ -20,4 +49,4 @@ class Solution:
             
         
         return f(S,(1<<len(matchsticks))-1,1)
-        
+'''
