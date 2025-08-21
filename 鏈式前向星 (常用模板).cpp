@@ -1,3 +1,5 @@
+//這簡單的模板還有存在的必要嗎 (惱
+
 #include <bits/stdc++.h>
 using namespace std;
 #define pb push_back
