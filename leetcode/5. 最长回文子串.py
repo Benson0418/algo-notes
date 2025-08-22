@@ -19,3 +19,10 @@ class Solution:
         start = (center-res+1)//2
         end = (center+res-1)//2
         return s[start:end]
+        """
+        manacher結論 (重要!!!)
+        由處理後字串反推原始字串
+        原始字串長==半徑-1
+        原始串結尾下標==處理串結尾位置//2-1
+        原始串起始下標==處理串開始位置//2
+        """
