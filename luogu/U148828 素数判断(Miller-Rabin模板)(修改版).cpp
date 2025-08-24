@@ -46,8 +46,9 @@ bool isPrime(ll num){
     }
     for (auto& i:witness){
 
+        //不再寫出i>=num break這個判斷條件
         ll x=qpow(i,d,num);
-        if (x==1 || x==num-1 || x==0) continue;
+        if (x==1 || x==num-1 || x==0) continue; //新增了x==0這個判斷條件
         bool flag=false;
         for (ll j=1;j<s;++j){
             x=(__int128)x*x%num;
