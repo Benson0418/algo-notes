@@ -11,7 +11,7 @@ i^(d*2^j)≡-1 (mod num) 其中j可為1~s-1中的任何數
 */
 
 using ll=unsigned long long;
-constexpr ll witness[12]={2, 325, 9375, 28178, 450775, 9780504, 1795265022};
+constexpr ll witness[]={2, 325, 9375, 28178, 450775, 9780504, 1795265022};
 
 ll qpow(ll a, ll b, ll mod=0){
     if (mod==1) return 0;
@@ -35,7 +35,7 @@ ll qpow(ll a, ll b, ll mod=0){
 }
 
 bool isPrime(ll num){
-    if (num<=2LL) return num==2LL;
+    if (num<=2) return num==2;
     if (~num&1) return false;
 
     ll s=0;
