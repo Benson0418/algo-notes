@@ -46,7 +46,6 @@ bool isPrime(ll num){
     for (auto& i:witness){
 
         if (i>=num) break;
-        if (gcd(i,num)>1) return false;
         ll x=qpow(i,d,num);
         if (x==1 || x==num-1) continue;
         bool flag=false;
