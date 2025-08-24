@@ -35,7 +35,7 @@ ll qpow(ll a, ll b, ll mod=0){
 }
 
 bool isPrime(ll num){
-    if (num<=2LL) return num==2LL;
+    if (num<=2) return num==2;
     if (~num&1) return false;
     ll s=0;
     ll d=num-1;
