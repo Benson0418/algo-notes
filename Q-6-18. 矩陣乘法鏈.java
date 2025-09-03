@@ -45,3 +45,41 @@ public class Main {
 		return dp[l][r];
 	}
 }
+
+/*
+import java.util.*;
+import java.io.*;
+
+
+public class Main {
+	public static int MAXN = 200;
+	public static int[] p = new int[200];
+	public static int[][] dp = new int[200][200];
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StreamTokenizer in  = new StreamTokenizer(br);
+		PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
+		in.nextToken();
+		int n = (int) in.nval;
+		for (int i = 0;i<=n;++i){
+			in.nextToken();
+			p[i] = (int) in.nval;
+		}
+		for (int i=2;i<=n;++i){
+			for (int l=0;l+i<=n;++l){
+				int r=l+i;
+				int e=Integer.MAX_VALUE;
+				for (int k=l+1;k<r;++k){
+					e=Math.min(e, p[l]*p[k]*p[r]+dp[l][k]+dp[k][r]);
+				}
+				dp[l][r]=e;
+			}
+		}
+		out.println(dp[0][n]);
+		out.close();
+		br.close();
+		
+	}
+
+}
+*/
